@@ -119,6 +119,10 @@ function gaoop_gutenberg_init() {
 		return;
 	}
 
+	register_block_type( 'gaoop/opt-out-block', [
+		'editor_script' => 'gaoop-block',
+	] );
+
 	add_action( 'enqueue_block_editor_assets', 'gaoop_gutenberg_editor_assets' );
 }
 
@@ -126,7 +130,7 @@ function gaoop_gutenberg_editor_assets() {
 
 	$block_file = plugin_dir_path( GAOOP_FILE ) . 'js/opt-out-block.js';
 
-	wp_enqueue_script(
+	wp_register_script(
 		'gaoop-block',
 		plugin_dir_url( GAOOP_FILE ) . 'js/opt-out-block.js',
 		array( 'wp-blocks', 'wp-i18n', 'wp-element' ),
