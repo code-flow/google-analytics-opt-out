@@ -42,6 +42,10 @@ The free and the pro version have now been merged together. So you now can have 
 
 == Changelog ==
 
+= 2.2.5 =
+* Corrected text domain for JS translations
+* State that plugin works with gtag.js, too.
+
 = 2.2.4 =
 * Gutenberg block content was not translated correctly in WordPress 5.0
 
