@@ -7,7 +7,7 @@ const {TextControl} = wp.components;
 export default registerBlockType(
     'gaoop/opt-out-block',
     {
-      title:      __( 'Analytics Opt Out', 'gaoop' ),
+      title:      __( 'Analytics Opt Out', 'google-analytics-opt-out' ),
       category:   'widgets',
       icon:       <svg width="18" height="20"
                        xmlns="http://www.w3.org/2000/svg">
@@ -22,14 +22,14 @@ export default registerBlockType(
                   </svg>,
       keywords:   [
         'gaoop',
-        __( 'Analytics Opt Out', 'gaoop' ),
+        __( 'Analytics Opt Out', 'google-analytics-opt-out' )
       ],
       attributes: {
         content: {
           source:   'text',
           selector: 'a',
-          default:  __( 'Click here to opt out', 'gaoop' ),
-        },
+          default:  __( 'Click here to opt out', 'google-analytics-opt-out' )
+        }
       },
 
       transforms: {
@@ -39,10 +39,10 @@ export default registerBlockType(
             blocks:    ['core/paragraph'],
             transform: ( {content} ) => {
               return createBlock( 'core/paragraph', {
-                content,
+                content
               } );
-            },
-          },
+            }
+          }
         ],
         from: [
           {
@@ -50,23 +50,23 @@ export default registerBlockType(
             blocks:    ['core/paragraph'],
             transform: ( {content} ) => {
               return createBlock( 'gaoop/opt-out-block', {
-                content,
+                content
               } );
-            },
-          },
-        ],
+            }
+          }
+        ]
       },
 
       edit: props => {
         const {isSelected, setAttributes} = props;
 
         const content = '' === props.attributes.content
-            ? __( 'Click here to opt out', 'gaoop' )
+            ? __( 'Click here to opt out', 'google-analytics-opt-out' )
             : props.attributes.content;
 
         return isSelected
             ? <TextControl
-                label={__( 'Enter a link text', 'gaoop' )}
+                label={__( 'Enter a link text', 'google-analytics-opt-out' )}
                 value={content}
                 onChange={( value ) => setAttributes( {content: value} )}
             />
@@ -76,13 +76,13 @@ export default registerBlockType(
       save: props => {
 
         const content = '' === props.attributes.content
-            ? __( 'Click here to opt out', 'gaoop' )
+            ? __( 'Click here to opt out', 'google-analytics-opt-out' )
             : props.attributes.content;
 
         return (
             <a className="gaoop-block"
                href="javascript:gaoop_analytics_optout();">{content}</a>
         );
-      },
-    },
+      }
+    }
 );

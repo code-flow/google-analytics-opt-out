@@ -137,16 +137,16 @@ function gaoop_gutenberg_editor_assets() {
 	if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
 		wp_add_inline_script(
 			'gaoop-block',
-			'wp.i18n.setLocaleData( ' . wp_json_encode( gutenberg_get_jed_locale_data( 'gaoop' ) ) . ', "gaoop" );',
+			'wp.i18n.setLocaleData( ' . wp_json_encode( gutenberg_get_jed_locale_data( 'google-analytics-opt-out' ) ) . ', "google-analytics-opt-out" );',
 			'before'
 		);
 	} elseif ( function_exists( 'wp_get_jed_locale_data' ) ) {
 		wp_add_inline_script(
 			'gaoop-block',
-			'wp.i18n.setLocaleData( ' . wp_json_encode( wp_get_jed_locale_data( 'gaoop' ) ) . ', "gaoop" );',
+			'wp.i18n.setLocaleData( ' . wp_json_encode( wp_get_jed_locale_data( 'google-analytics-opt-out' ) ) . ', "google-analytics-opt-out" );',
 			'before'
 		);
 	} elseif ( function_exists( 'wp_set_script_translations' ) ) {
-		wp_set_script_translations( 'gaoop-block', 'gaoop' );
+		wp_set_script_translations( 'gaoop-block', 'google-analytics-opt-out' );
 	}
 }
