@@ -2,11 +2,11 @@
 Contributors: wp-buddy, floriansimeth
 Donate link: https://wp-buddy.com/products/plugins/google-analytics-opt-out/
 Tags: google analytics opt-out, monster insights, gdpr
-Version: 2.2.4
-Stable tag: 2.2.4
+Version: 2.2.5
+Stable tag: 2.2.5
 Requires at least: 4.8.0
 Requires PHP: 5.6.0
-Tested up to: 5.0
+Tested up to: 5.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
