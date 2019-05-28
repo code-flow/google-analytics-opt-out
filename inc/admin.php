@@ -138,6 +138,12 @@ function gaoop_gutenberg_editor_assets() {
 		true
 	);
 
+	wp_add_inline_script(
+		'gaoop-block',
+		sprintf( 'var gaoop_mode = "%s";', esc_attr( get_option( 'gaoop_mode', 'opt-out' ) ) ),
+		'before'
+	);
+
 	if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
 		wp_add_inline_script(
 			'gaoop-block',
