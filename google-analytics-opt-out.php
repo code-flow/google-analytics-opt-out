@@ -1,16 +1,16 @@
 <?php
 /*
-Plugin Name: Google Analytics Opt-Out
+Plugin Name: Google Analytics Opt-Out and Opt-in
 Plugin URI: https://wp-buddy.com/products/plugins/google-analytics-opt-out
-Description: Provides an Opt-Out functionality for Google Analytics
-Version: 2.2.5
+Description: Provides an Opt-Out and an Opt-In functionality for Google Analytics
+Version: 2.3.0
 Author: WP-Buddy
 Author URI: https://wp-buddy.com
 License: GPL2
 Text Domain: google-analytics-opt-out
 Domain Path: /languages/
 
-Copyright 2018  WP-Buddy  (email : info@wp-buddy.com)
+Copyright 2019  WP-Buddy  (email : info@wp-buddy.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as

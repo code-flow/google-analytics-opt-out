@@ -9,7 +9,7 @@ function gaoop_admin_notice() {
 	?>
 	<div class="error">
 		<p>
-			<a href="<?php echo admin_url( 'options-general.php?page=gaoo-options' ); ?>"><?php _e( 'To use the Google Analytics Opt-Out Plugin please enter an UA-Code on the settings page.', 'google-analytics-opt-out' ); ?></a>
+			<a href="<?php echo admin_url( 'options-general.php?page=gaoo-options' ); ?>"><?php _e( 'To use the Google Analytics Opt-Out/Opt-in Plugin please enter an UA-Code on the settings page.', 'google-analytics-opt-out' ); ?></a>
 		</p>
 	</div>
 	<?php

@@ -3,8 +3,8 @@
 /**
  * Adds a hidden div to the footer
  *
- * @since 1.0
  * @return void
+ * @since 1.0
  */
 function gaoop_footer() {
 
@@ -34,13 +34,22 @@ add_action( 'wp_footer', 'gaoop_footer' );
  */
 function gaoop_optout_text() {
 
+	$mode = get_option( 'gaoop_mode', 'opt-out' );
+
 	$opt_out_text = get_option( 'gaoop_opt_out_text', '' );
 	if ( empty( $opt_out_text ) ) {
-		$opt_out_text = __( 'This website is using Google Analytics. Please click here if you want to opt-out.', 'google-analytics-opt-out' );
+		if ( 'opt-out' === $mode ) {
+			$opt_out_text = __( 'This website is using Google Analytics. Please click here if you want to opt-out.', 'google-analytics-opt-out' );
+		} else {
+			$opt_out_text = __( 'This website wants to use Google Analytics. Please click here to opt-in.', 'google-analytics-opt-out' );
+		}
 	}
 
 	if ( ! has_shortcode( $opt_out_text, 'google_analytics_optout' ) && (bool) get_option( 'gaoop_opt_out_shortcode_integration', 1 ) ) {
-		$opt_out_text .= sprintf( ' [google_analytics_optout]%s[/google_analytics_optout]', __( 'Click here to opt-out.', 'google-analytics-opt-out' ) );
+		$opt_out_text .= sprintf(
+			' [google_analytics_optout]%s[/google_analytics_optout]',
+			'opt-out' === $mode ? __( 'I want to opt-out.', 'google-analytics-opt-out' ) : __( 'I want to opt-in.', 'google-analytics-opt-out' )
+		);
 	}
 
 	return $opt_out_text;
@@ -53,8 +62,8 @@ add_filter( 'gaoop_optout_text', 'do_shortcode', 15 );
 /**
  * Adds the custom styles to the header
  *
- * @since 1.0
  * @return void
+ * @since 1.0
  */
 function gaoop_wp_head() {
 

@@ -1,23 +1,32 @@
 (function ( $ ) {
-	"use strict";
+	'use strict';
 	jQuery( document ).ready( function () {
 
 		var $gaoop  = jQuery( '.gaoop' );
 		var ua_code = $gaoop.data( 'gaoop_ua' );
 
 		/**
-		 * Check if opt-out cookie has NOT been set already
+		 * Initial banner
 		 */
-		if ( document.cookie.indexOf( 'ga-disable-' + ua_code + '=true' ) <= -1 && jQuery.isFunction( window.gaoop_analytics_optout ) ) {
-			/** Check if hide-info cookie was checked **/
-			if ( document.cookie.indexOf( 'gaoop_hide_info=true' ) > -1 ) {
-				/* yes, set */
-				if ( 1 != $gaoop.data( 'gaoop_hide' ) ) {
-					$gaoop.addClass( 'gaoop_closed' ).show();
+		if ( jQuery.isFunction( window.gaoop_analytics_optout ) ) {
+
+			/**
+			 * Check if opt-out cookie has NOT been set already
+			 */
+			if (
+					('opt-out' === window.gaoop_mode && document.cookie.indexOf( 'ga-disable-' + ua_code + '=true' ) <= -1)
+					|| 'opt-in' === window.gaoop_mode && document.cookie.indexOf( 'ga-enable-' + ua_code + '=true' ) <= -1 ) {
+
+				/** Check if hide-info cookie was checked **/
+				if ( document.cookie.indexOf( 'gaoop_hide_info=true' ) > -1 ) {
+					/* yes, set */
+					if ( 1 != $gaoop.data( 'gaoop_hide' ) ) {
+						$gaoop.addClass( 'gaoop_closed' ).show();
+					}
+				} else {
+					/* not set */
+					$gaoop.show();
 				}
-			} else {
-				/* not set */
-				$gaoop.show();
 			}
 		}
 

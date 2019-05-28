@@ -1,4 +1,4 @@
-=== Google Analytics Opt-Out ===
+=== Google Analytics Opt-Out and Opt-In ===
 Contributors: wp-buddy, floriansimeth
 Donate link: https://wp-buddy.com/products/plugins/google-analytics-opt-out/
 Tags: google analytics opt-out, monster insights, gdpr
@@ -6,25 +6,25 @@ Version: 2.2.5
 Stable tag: 2.2.5
 Requires at least: 4.8.0
 Requires PHP: 5.6.0
-Tested up to: 5.1
+Tested up to: 5.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-Provides an Opt-Out functionality for Google Analytics
+Provides an Opt-Out or an Opt-In functionality for Google Analytics
 
 == Description ==
 
-This plugin provides an Opt-Out functionality for Google Analytics by setting a cookie that prevents analytics.js or gtag.js to collect data. The new GDPR rules requires an opt-out.
+This plugin provides an Opt-Out or an Opt_in functionality for Google Analytics by setting a cookie that prevents analytics.js or gtag.js to collect data. The new GDPR rules requires an opt-out and soon an opt-in is maybe necessary.
 
-Works perfectly together with the [Google Analytics by MonsterInsights Plugin](http://wordpress.org/plugins/google-analytics-for-wordpress/ "Google Analytics by MonsterInsights Plugin"). However the plugin is not necessary to configure the opt-out feature. Just enter your UA- or GA-Code manually. That's it!
+Works perfectly together with the [Google Analytics by MonsterInsights Plugin](http://wordpress.org/plugins/google-analytics-for-wordpress/ "Google Analytics by MonsterInsights Plugin"). However the plugin is not necessary to configure the feature. Just enter your UA- or GA-Code manually. That's it!
 
 The free and the pro version have now been merged together. So you now can have the option to activate a banner, too! Enjoy!
 
 == Installation ==
 
 * Install and activate the plugin via your WordPress Administration panel
-* Go the "Settings" -> "Analytics Opt Out" and enter your UA- or GA-code (you don't need this step if MonsterInsights plugin is active).
+* Go the "Settings" -> "Analytics Opt Out/In" and enter your UA- or GA-code (you don't need this step if MonsterInsights plugin is active).
 * [Read the FAQ for more information.](https://wp-buddy.com/documentation/plugins/google-analytics-opt/faq/)
 
 == Frequently Asked Questions ==

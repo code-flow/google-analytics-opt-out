@@ -1,5 +1,5 @@
 (function () {
-	"use strict";
+	'use strict';
 	jQuery( document ).ready( function () {
 
 		var $yoast  = jQuery( '#gaoop_options_yoast' ),
@@ -39,6 +39,16 @@
 
 		$banner.click( function () {
 			show_hide_banner_fields();
+		} );
+
+		jQuery( document ).on( 'click', '.gaoop-options-mode-link', function ( e ) {
+			e.preventDefault();
+
+			var $icon = jQuery( this ).parent().find( 'span' );
+			$icon.remove();
+			jQuery( this ).before( $icon );
+
+			jQuery( this ).closest( 'td' ).find( 'input' ).val( jQuery( this ).data( 'mode' ) );
 		} );
 
 	} );

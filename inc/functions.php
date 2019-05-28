@@ -3,12 +3,12 @@
 /**
  * Checks if the Yoast Analytics Plugin is active
  *
- * @since 1.0
+ * @return bool
  * @deprecated 2.0.2
  *
- * @todo Remove this in a future version.
+ * @todo       Remove this in a future version.
  *
- * @return bool
+ * @since      1.0
  */
 function gaoop_yoast_plugin_active() {
 
@@ -18,8 +18,8 @@ function gaoop_yoast_plugin_active() {
 /**
  * Checks if Monster Insights is active
  *
- * @since 2.0.2
  * @return bool
+ * @since 2.0.2
  */
 function gaoop_monster_insights_plugin_active() {
 
@@ -30,12 +30,12 @@ function gaoop_monster_insights_plugin_active() {
  * Return the UA from Yoast settings, if Yoast Analytics plugin is installed
  * If Yoast Analytics is not installed this will return an empty string
  *
- * @since 1.0
+ * @return string
  * @deprecated 2.0.2
  *
- * @todo Remove this in a future version.
+ * @todo       Remove this in a future version.
  *
- * @return string
+ * @since      1.0
  */
 function gaoop_get_yoast_ua() {
 
@@ -46,8 +46,8 @@ function gaoop_get_yoast_ua() {
  * Return the UA from Monster Insights settings.
  * If Monster Insights is not installed this will return an empty string.
  *
- * @since 1.0
  * @return string
+ * @since 1.0
  */
 function gaoop_get_monster_insights_ua() {
 
@@ -61,8 +61,8 @@ function gaoop_get_monster_insights_ua() {
 /**
  * Returns the UA-Code
  *
- * @since 1.0
  * @return string
+ * @since 1.0
  */
 function gaoop_get_ua_code() {
 
@@ -74,7 +74,7 @@ function gaoop_get_ua_code() {
 	}
 
 	// if Monster Insights should be used, try to get the ua code from the plugin
-	if ( 1 == intval( $use_monster_insights ) && gaoop_monster_insights_plugin_active()) {
+	if ( 1 == intval( $use_monster_insights ) && gaoop_monster_insights_plugin_active() ) {
 
 		$monster_insights_ua = gaoop_get_monster_insights_ua();
 
@@ -110,7 +110,13 @@ function gaoop_opt_out_cookie_set_text() {
 		return $text;
 	}
 
-	return __( 'Thanks. We have set a cookie so that Google Analytics data collection will be disabled on your next visit.', 'google-analytics-opt-out' );
+	$mode = get_option( 'gaoop_mode', 'opt-out' );
+
+	if ( 'opt-out' === $mode ) {
+		return __( 'Thanks. We have set a cookie so that Google Analytics data collection will be disabled on your next visit.', 'google-analytics-opt-out' );
+	} else {
+		return __( 'Thanks. We have set a cookie so that we can collect data on your next visit.', 'google-analytics-opt-out' );
+	}
 }
 
 add_filter( 'gaoop_opt_out_cookie_set_text', 'gaoop_opt_out_cookie_set_text' );
